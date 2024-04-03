@@ -1,0 +1,36 @@
+<div class="mission-details-container">
+    <h1 class="text-4xl font-bold text-blue-950 mb-4 justify-center items-center text-center">Mission Details</h1>
+
+    <div class="card p-8 mx-20 my-12" *ngIf="selectedMission">
+        <div class="flex flex-row items-center bg-blue-200 p-4 rounded-lg shadow-md text-black-600 font-sans">
+            <img [src]="selectedMission.links.mission_patch_small" alt="Mission Patch" class="mr-8 rounded-full">
+            <div class="mission-info">
+                <h2 class="text-xl font-semibold my-4 "> Mission {{ selectedMission.mission_name }}</h2>
+                <p class="mb-2"><strong>Mission Name:</strong> {{ selectedMission.mission_name }}</p>
+                <p class="mb-2"><strong>Launch Year:</strong> {{ selectedMission.launch_year }}</p>
+                <hr class="my-6">
+                <h2 class="text-xl font-semibold mb-4">Rocket Details</h2>
+                <p class="mb-2"><strong>Rocket Name:</strong> {{ selectedMission.rocket.rocket_name }}</p>
+                <p class="mb-2"><strong>Rocket Type:</strong> {{ selectedMission.rocket.rocket_type }}</p>
+                 <hr class="my-6">
+                <h2 class="text-xl font-semibold mb-4">Launch Site Details</h2>
+                <p class="mb-2"><strong>Launch Site Name:</strong> {{ selectedMission.launch_site.site_name_long }}</p>
+            </div>
+        </div>
+
+        <div class="launch-details my-12  items-center bg-blue-200 p-4 rounded-lg shadow-md text-black-600 font-sans">
+            <h2 class="text-xl font-semibold mb-4">More launch Details: </h2>
+            <p class="mb-4">{{ selectedMission.details }}</p>
+                             <hr class="my-3">
+
+            <h2 class="text-xl font-semibold mb-4">More Information on Launch Details: </h2>
+            
+            <ul>
+                <li class="mb-2"><a href="{{ selectedMission.links.wikipedia }}" target="_blank">Wikipedia</a></li>
+                <li class="mb-2"><a href="{{ selectedMission.links.article_link }}" target="_blank">Article</a></li>
+                <li class="mb-2"><a href="{{ selectedMission.links.video_link }}" target="_blank">Video</a></li>
+                <li class="mb-2"><a href="{{ selectedMission.links.youtube_id }}" target="_blank">Youtube</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container mx-auto">
+  <div class="grid grid-cols-2 gap-4">
+    <div class="bg-gray-200 p-4 rounded-lg">
+      <h2 class="text-lg font-semibold mb-4">Filter by Year</h2>
+      <ng-container *ngFor="let year of years">
+        <a
+          mat-list-item
+          [routerLink]="['/missions']"
+          [queryParams]="{ year: year }"
+          [routerLinkActive]="'active'"
+          class="block py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold mb-2"
+        >
+          {{ year }}
+        </a>
+      </ng-container>
+    </div>
+    <div class="bg-gray-200 p-4 rounded-lg">
+      <h2 class="text-lg font-semibold mb-4">Mission List</h2>
+      <div
+        class="grid grid-cols-1 gap-4"
+        *ngIf="missions && missions.length > 0; else noMissions"
+      >
+        <ng-container *ngFor="let mission of missions">
+          <mat-card class="card">
+            <img
+              mat-card-image
+              [src]="mission.links.mission_patch_small"
+              alt="{{ mission.mission_name }}"
+              class="w-full h-auto"
+            />
+            <mat-card-content>
+              <h3 class="text-lg font-semibold">{{ mission.mission_name }}</h3>
+              <p>Flight Number: {{ mission.flight_number }}</p>
+              <p>Launch Year: {{ mission.launch_year }}</p>
+              <p>
+                Successful Launch: {{ mission.launch_success ? "Yes" : "No" }}
+              </p>
+              <p>
+                Successful Landing:
+                {{
+                  mission.rocket.first_stage.cores[0].land_success
+                    ? "Yes"
+                    : "No"
+                }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+      </div>
+      <ng-template #noMissions>
+        <p class="text-lg">No Missions Found</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

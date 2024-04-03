@@ -1,0 +1,14 @@
+<h1 class="text-3xl font-bold mb-8">SpaceX Mission Launch List</h1>
+
+<div *ngFor="let mission of missions" class="bg-lightblue mb-10 p-4 rounded-lg" (click)="onSelect(mission)">
+    <div class="mission-details flex items-center">
+        <img [src]="mission.links.mission_patch_small" alt="{{ mission.mission_name }}" class="w-20 h-auto mr-4">
+        <div>
+            <h2 class="text-lg font-bold">{{ mission.mission_name }}</h2>
+            <p>{{ mission.launch_year }}</p>
+        </div>
+    </div>
+    <div>
+        <p class="mt-2">{{ mission.details }}</p>
+    </div>
+</div>
