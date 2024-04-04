@@ -1,14 +1,20 @@
-<mat-toolbar>
-    <a routerLink="/" class="m-10  bg-[#161A30] hover:bg-[#31304D] text-white font-bold py-2 px-4 rounded-3xl ">Main menu</a>
-  <a routerLink="/missions" class="  bg-[#161A30] hover:bg-[#31304D] text-white font-bold py-2 px-4 rounded-3xl ">
-    Filter by year
-</a>
-    
-
+<mat-toolbar [style.background-color]="'#faf3ec'">
+  <div class="flex justify-between items-center w-full m-5">
+    <h1 class="text-xl font-bold">SpaceX</h1>
+    <div>
+      <a
+        routerLink="/"
+        class="m-6 bg-[#161A30] hover:bg-[#31304D] text-white font-bold py-2 px-4 rounded-3xl"
+        >Main menu</a
+      >
+      <a
+        routerLink="/missions"
+        class="bg-[#161A30] hover:bg-[#31304D] text-white font-bold py-2 px-4 rounded-3xl"
+      >
+        Filter by year
+      </a>
+    </div>
+  </div>
 </mat-toolbar>
-  
+
 <router-outlet></router-outlet>
-  
-
-
-
